@@ -20,4 +20,12 @@ public class CartaEspaniola {
             this.numero = numero;
         }
     }
+
+    @Override
+    public String toString() {
+        return  numero + " de " + palo;
+    }
+    
+    
+    
 }

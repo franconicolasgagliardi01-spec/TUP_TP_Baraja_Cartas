@@ -48,9 +48,18 @@ public class Baraja<T> {
         }
         
     } //Muestra las cartas repartidas
-
+    
+    
+    //Se sigue la mmisma logica que en la anterior
     public void mostrarDisponibles(){
-
+        if (cartas.isEmpty()) {
+            System.out.println("No hay cartas disponibles ");
+        }else{
+            System.out.println("Las siguientes cartas no han sido repartidas: ");
+            for (T carta : cartas) {
+                System.out.println(carta);
+            }
+        }
     } //Muestra las cartas que no han sido repartidas
 
     public void agregarCarta(T carta){
