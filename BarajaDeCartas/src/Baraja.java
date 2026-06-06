@@ -38,7 +38,15 @@ public class Baraja<T> {
     } //Devuelve una lista con cierta cantidad de cartas
 
     public void mostrarRepartidas(){
-
+        if (cartasRepartidas.isEmpty()) { // Compruebo que hayan cartas repartidas 
+            System.out.println("No hay cartas repartidas"); // En el caso de que la lista esté vacia, solo imprimimos un mensaje por consola
+        }else{ // En el caso de que hayan cartas repartidas, hacemos un for each y mostramos cada carta de manera individual
+            System.out.println("Se han repartido las siguientes cartas: ");
+            for (T repartida : cartasRepartidas) {
+                System.out.println(repartida);
+            }
+        }
+        
     } //Muestra las cartas repartidas
 
     public void mostrarDisponibles(){
@@ -53,7 +61,7 @@ public class Baraja<T> {
 
     } //Quita una carta del mazo
 
-
-
-
+    
+    
+    
 }
