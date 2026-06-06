@@ -11,7 +11,7 @@ public class CartaEspaniola {
     public enum PaloEspaniol{
         ESPADA,
         ORO,
-        Basto,
+        BASTO,
         COPA;
     }
 

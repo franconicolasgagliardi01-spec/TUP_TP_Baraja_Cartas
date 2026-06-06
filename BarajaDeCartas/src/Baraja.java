@@ -11,6 +11,7 @@ public class Baraja<T> {
 
     public void barajar(){
         cartasRepartidas.clear(); //Cada vez que barajo reinicio las cartas repartidas
+        //Cuando barajo tambien hay que implementar un reseteo en obtener siguiente
     } //Mescla las cartas
 
     public T obtenerSiguiente(){
@@ -24,8 +25,9 @@ public class Baraja<T> {
     public ArrayList<T> repartir(int cantidad){
         ArrayList<T> cartasARepartir = new ArrayList<>(); //Creo una lista con las cartas que voy a repartir
         for (int i = 1; i <= cantidad; i++) { //Itero en base a la cantidad de cartas que quiero repartir
-            if (obtenerSiguiente() != null){ //Si todavia no se acaban las cartas sigo repartiendo
-                cartasARepartir.add(obtenerSiguiente());
+            T siguiente = obtenerSiguiente();
+            if (siguiente != null){ //Si todavia no se acaban las cartas sigo repartiendo
+                cartasARepartir.add(siguiente);
             }else { //Si se acaban devuelvo null para indicar que no se pudieron repartir
                 System.out.println("Ya no quedan cartas suficientes");
                 return null; //Esto hace que si solo quedan por ejemplo 2 cartas para repartir pero yo queria repartir 4 me devuelva null
