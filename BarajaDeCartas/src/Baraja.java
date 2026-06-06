@@ -13,19 +13,19 @@ public class Baraja<T> {
     //Mezcla las cartas
     public void barajar(){
         // Se devuelven al mazo todas las cartas usadas previamente
-        this.cartas.addAll(this.cartasRepartidas);
+        cartas.addAll(cartasRepartidas);
         // Se vacia la lista de repartidas
-        this.cartasRepartidas.clear();
+        cartasRepartidas.clear();
         // Se mezclan todas las cartas aleatoriamente
-        Collections.shuffle(this.cartas);
+        Collections.shuffle(cartas);
     }
 
     //Devuelve la siguiente carta disponible
     private T obtenerSiguiente(){
-        if (this.cartas.isEmpty()) {
+        if (cartas.isEmpty()) {
             return null; // En caso de no haber más cartas en el mazo, retorna null
         }
-        return this.cartas.remove(0); // Saca la carta de arriba (posición 0) y la devuelve
+        return cartas.remove(0); // Saca la carta de arriba (posición 0) y la devuelve
     }
 
     //Devuelve la cantidad de cartas
@@ -42,6 +42,7 @@ public class Baraja<T> {
                 cartasARepartir.add(siguiente);
             }else { //Si se acaban devuelvo null para indicar que no se pudieron repartir
                 System.out.println("Ya no quedan cartas suficientes");
+                cartas.addAll(cartasARepartir);
                 return null; //Esto hace que si solo quedan por ejemplo 2 cartas para repartir pero yo queria repartir 4 me devuelva null
             }
         }

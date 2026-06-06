@@ -35,11 +35,11 @@ El sistema utiliza colecciones dinámicas (`ArrayList`) para gestionar las carta
 ---
 
 ## Estado del Proyecto y Próximos Pasos
-- [ ] Tarea 1: Asignación del rol de Capitán y distribución de roles del equipo.
-- [ ] Tarea 2: Análisis del problema y diseño del Diagrama de Clases UML.
-- [ ] Tarea 3: Evaluación y debate sobre la aplicación de Patrones de Diseño.
-- [ ] Tarea 4: Implementación del código en Java utilizando `ArrayList`.
-- [ ] Tarea 5: Pruebas de software, armado del PDF final y control de calidad.
+- [✔] Tarea 1: Asignación del rol de Capitán y distribución de roles del equipo.
+- [✔] Tarea 2: Análisis del problema y diseño del Diagrama de Clases UML.
+- [✔] Tarea 3: Evaluación y debate sobre la aplicación de Patrones de Diseño.
+- [✔] Tarea 4: Implementación del código en Java utilizando `ArrayList`.
+- [✔] Tarea 5: Pruebas de software, armado del PDF final y control de calidad.
 
 ---
 Fecha límite de entrega: Lunes 8 de Junio de 2026
