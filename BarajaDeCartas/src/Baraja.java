@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Baraja<T> {
     private ArrayList<T> cartas;
@@ -9,19 +10,30 @@ public class Baraja<T> {
         this.cartasRepartidas = new ArrayList<>(); //Lista donde estan las cartas que ya se repartieron
     }
 
+    //Mezcla las cartas
     public void barajar(){
-        cartasRepartidas.clear(); //Cada vez que barajo reinicio las cartas repartidas
-        //Cuando barajo tambien hay que implementar un reseteo en obtener siguiente
-    } //Mescla las cartas
+        // Se devuelven al mazo todas las cartas usadas previamente
+        this.cartas.addAll(this.cartasRepartidas);
+        // Se vacia la lista de repartidas
+        this.cartasRepartidas.clear();
+        // Se mezclan todas las cartas aleatoriamente
+        Collections.shuffle(this.cartas);
+    }
 
-    public T obtenerSiguiente(){
-        return null; //Es necesario que devuelva null en caso de que ya no queden mas cartas
-    } //Devuelve la siguiente carta disponible
+    //Devuelve la siguiente carta disponible
+    private T obtenerSiguiente(){
+        if (this.cartas.isEmpty()) {
+            return null; // En caso de no haber más cartas en el mazo, retorna null
+        }
+        return this.cartas.remove(0); // Saca la carta de arriba (posición 0) y la devuelve
+    }
 
+    //Devuelve la cantidad de cartas
     public int cantidadDisponible(){
         return cartas.size();
-    } //Devuelve la cantidad de cartas
+    }
 
+    //Devuelve una lista con cierta cantidad de cartas
     public ArrayList<T> repartir(int cantidad){
         ArrayList<T> cartasARepartir = new ArrayList<>(); //Creo una lista con las cartas que voy a repartir
         for (int i = 1; i <= cantidad; i++) { //Itero en base a la cantidad de cartas que quiero repartir
@@ -35,10 +47,11 @@ public class Baraja<T> {
         }
         cartasRepartidas.addAll(cartasARepartir); //Pongo los elementos de cartasARepartir en cartasRepartidas
         return cartasARepartir;
-    } //Devuelve una lista con cierta cantidad de cartas
+    }
 
+    //Muestra las cartas repartidas
     public void mostrarRepartidas(){
-        if (cartasRepartidas.isEmpty()) { // Compruebo que hayan cartas repartidas 
+        if (cartasRepartidas.isEmpty()) { // Compruebo que hayan cartas repartidas
             System.out.println("No hay cartas repartidas"); // En el caso de que la lista esté vacia, solo imprimimos un mensaje por consola
         }else{ // En el caso de que hayan cartas repartidas, hacemos un for each y mostramos cada carta de manera individual
             System.out.println("Se han repartido las siguientes cartas: ");
@@ -46,11 +59,9 @@ public class Baraja<T> {
                 System.out.println(repartida);
             }
         }
-        
-    } //Muestra las cartas repartidas
-    
-    
-    //Se sigue la mmisma logica que en la anterior
+    }
+
+    //Muestra las cartas que no han sido repartidas
     public void mostrarDisponibles(){
         if (cartas.isEmpty()) {
             System.out.println("No hay cartas disponibles ");
@@ -60,17 +71,15 @@ public class Baraja<T> {
                 System.out.println(carta);
             }
         }
-    } //Muestra las cartas que no han sido repartidas
+    }//Se sigue la misma logica que en el método mostrarRepartidas
 
+    //Agrega una carta al mazo
     public void agregarCarta(T carta){
         cartas.add(carta);
-    } //Agrega una carta al mazo
+    }
 
+    //Quita una carta del mazo
     public void quitarCarta(T carta){
-
-    } //Quita una carta del mazo
-
-    
-    
-    
+        cartas.remove(carta);
+    }
 }
